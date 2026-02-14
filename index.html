@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Touch of Calm – slow, attentive massage in Munich</title>
+  <!-- Calendly assets (loaded once) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   <style>
     /* === global reset & base styles – exactly as in the React component === */
     * {
@@ -275,7 +278,7 @@
           <section style="padding: 0 1.25rem 2rem; display: flex; justify-content: center; position: relative;">
             <div style="width: 100%; max-width: 600px; position: relative;">
               <img 
-               src="images/illustration-1.jpg" 
+               src="/images/illustration-1.jpg" 
                alt="Relaxing massage atmosphere" 
                 style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; display: block;"
                 >
@@ -292,7 +295,7 @@
           <!-- SECOND ILLUSTRATION (abstract gradient) -->
           <section style="padding: 2rem 1.25rem; display: flex; justify-content: center;">
             <img 
-            src="images/illustration-2.jpg" 
+            src="/images/illustration-2.jpg" 
            alt="Peaceful interior" 
            style="width: 100%; max-width: 600px; height: 300px; object-fit: cover; border-radius: 16px; display: block;"
             >
@@ -339,33 +342,19 @@
           <!-- THIRD ILLUSTRATION -->
           <section style="padding: 2rem 1.25rem; display: flex; justify-content: center;">
             <img 
-            src="images/illustration-3.jpg" 
+            src="/images/illustration-3.jpg" 
             alt="Peaceful interior" 
              style="width: 100%; max-width: 600px; height: 300px; object-fit: cover; border-radius: 16px; display: block;"
               >
           </section>
 
-          <!-- BOOKING SECTION (id=booking) with white card -->
+          <!-- BOOKING SECTION (id=booking) with white card – now using Calendly -->
           <section id="booking" style="padding: 2rem 1.25rem 3rem; background: #FFFFFF; margin: 0 1.25rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
             <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 2rem; letter-spacing: -0.01em; text-align: center;">
               Book a session
             </h2>
-            <div style="text-align: center; margin-bottom: 2rem;">
-              <p style="font-size: 0.9rem; color: #ABABAB; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">
-                DURATION
-              </p>
-              <p style="font-size: 1.25rem; color: #3D3D3D; font-weight: 400;">
-                45 minutes
-              </p>
-            </div>
-            <div role="region" aria-label="Calendar booking interface" style="padding: 2rem 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-              <a href="https://cal.meetergo.com/fedor-stolov/30-min-meeting-or-fedor-stolov" target="_blank" rel="noopener noreferrer" class="booking-button" style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 1rem 2.5rem; border-radius: 12px; font-size: 1.05rem; font-weight: 500; cursor: pointer; box-shadow: 0 2px 8px rgba(92, 123, 111, 0.2); text-decoration: none; display: inline-block; transition: all 0.3s ease;">
-                Choose a time
-              </a>
-              <p style="font-size: 0.9rem; color: #8A8A8A; max-width: 400px; line-height: 1.5;">
-                Opens in a new window
-              </p>
-            </div>
+            <!-- Calendly inline widget -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/fedyaj/45min?background_color=ede7dc&primary_color=a3b18a" style="min-width:320px;height:700px;"></div>
           </section>
 
           <!-- PRACTICAL INFO (id=info) -->
