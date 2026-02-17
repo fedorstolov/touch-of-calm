@@ -14,6 +14,7 @@
       padding: 0;
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
+      font-family: Verdana, Geneva, sans-serif; /* ensure everything uses Verdana */
     }
 
     html {
@@ -21,7 +22,6 @@
     }
 
     body {
-      font-family: Verdana, Geneva, sans-serif;
       background-color: #EDE7DC; /* matches main container */
     }
 
@@ -222,18 +222,18 @@
       const menuOverlayHtml = menuOpen ? `
         <div class="menu-overlay" data-action="close-menu" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(237, 231, 220, 0.98); z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem;">
           <nav style="text-align: center;">
-            <button data-action="scroll-to-section" data-section="approach" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%;">
+            <button data-action="scroll-to-section" data-section="approach" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">
               Approach
             </button>
-            <button data-action="scroll-to-section" data-section="booking" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%;">
+            <button data-action="scroll-to-section" data-section="booking" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">
               Book a session
             </button>
-            <button data-action="scroll-to-section" data-section="info" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%;">
+            <button data-action="scroll-to-section" data-section="info" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">
               Practical info
             </button>
             <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
-              <button style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 0.5rem 0.875rem; border-radius: 6px; font-size: 0.9rem; font-weight: 500; cursor: pointer;">EN</button>
-              <button style="background: transparent; color: #8A8A8A; border: none; padding: 0.5rem 0.875rem; font-size: 0.9rem; font-weight: 500; cursor: pointer;">DE</button>
+              <button style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 0.5rem 0.875rem; border-radius: 6px; font-size: 0.9rem; font-weight: 500; cursor: pointer; font-family: inherit;">EN</button>
+              <button style="background: transparent; color: #8A8A8A; border: none; padding: 0.5rem 0.875rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; font-family: inherit;">DE</button>
             </div>
           </nav>
         </div>
@@ -318,7 +318,7 @@
               Please be aware that my massages are intended solely for relaxation and prevention and are not medical therapy. This is not a cure for back pain, it is gentle care for your body and a willingness to make your life just a little bit more comfortable.
             </p>
             <p style="font-size: 1rem; color: #6B6B6B; margin-bottom: 1rem;">
-              send a message
+              feel free to send me a message
             </p>
             <div style="display: flex; gap: 1rem; align-items: center;">
               <a href="https://wa.me/491742582751" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="color: #5C7B6F; text-decoration: none; font-size: 1.5rem;">
@@ -355,6 +355,14 @@
             </h2>
             <!-- Calendly inline widget -->
             <div class="calendly-inline-widget" data-url="https://calendly.com/fedyaj/45min?background_color=ede7dc&primary_color=a3b18a" style="min-width:320px;height:700px;"></div>
+          </section>
+
+          <!-- NEW QUESTIONNAIRE SECTION (added after booking) -->
+          <section id="questionnaire" style="padding: 2rem 1.25rem 3rem; background: #FFFFFF; margin: 2rem 1.25rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
+            <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 2rem; letter-spacing: -0.01em; text-align: center;">
+              This will help us understand each other better
+            </h2>
+            <iframe src="https://misty-hovercraft-d02.notion.site/ebd//309840c4224a8073b709f4b7d12d21a4" width="100%" height="600" frameborder="0" allowfullscreen style="border-radius: 12px;"></iframe>
           </section>
 
           <!-- PRACTICAL INFO (id=info) -->
