@@ -143,7 +143,7 @@
   <div id="menu-overlay" class="hidden" data-action="close-menu">
     <nav style="text-align: center;">
       <button data-action="scroll-to-section" data-section="approach" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Approach</button>
-      <button data-action="scroll-to-section" data-section="booking" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Book a session</button>
+      <button data-action="scroll-to-section" data-section="" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Book a session</button>
       <button data-action="scroll-to-section" data-section="first-visit" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">FAQ</button>
       <button data-action="scroll-to-section" data-section="info" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Practical info</button>
       <button data-action="set-page" data-page="impressum" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Impressum</button>
@@ -196,10 +196,10 @@
       function openCalendly() {
         if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
           window.Calendly.initPopupWidget({
-            url: 'https://calendly.com/fedyaj/60min?background_color=ede7dc&primary_color=a3b18a'
+            url: 'https://calendly.com/touchofcalm?background_color=ede7dc&primary_color=a3b18a'
           });
         } else {
-          window.open('https://calendly.com/fedyaj/60min', '_blank');
+          window.open('https://calendly.com/touchofcalm', '_blank');
         }
       }
 
@@ -295,7 +295,7 @@
               <section id="top" style="padding: 2rem 0 3rem; text-align: center;">
                 <h1 style="font-size: 1.75rem; font-weight: 400; line-height: 1.3; color: #3D3D3D; margin-bottom: 1rem; letter-spacing: -0.01em;">when your body<br />feels tense, tired or overwhelmed</h1>
                 <p style="font-size: 1rem; color: #6B6B6B; margin-bottom: 2rem; font-weight: 400; line-height: 1.5;">Calm. Focused. In Munich.</p>
-                <button data-action="scroll-to-section" data-section="booking" class="primary-button" style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.05rem; font-weight: 500; cursor: pointer; width: 100%; max-width: 320px; box-shadow: 0 2px 8px rgba(92, 123, 111, 0.2); display: flex; flex-direction: column; gap: 0.25rem; margin: 0 auto;">
+                <button data-action="scroll-to-section" data-section="" class="primary-button" style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.05rem; font-weight: 500; cursor: pointer; width: 100%; max-width: 320px; box-shadow: 0 2px 8px rgba(92, 123, 111, 0.2); display: flex; flex-direction: column; gap: 0.25rem; margin: 0 auto;">
                   <span>Book a session</span>
                   <span style="font-size: 0.85rem; font-weight: 400; opacity: 0.9;">we can figure out the details later</span>
                 </button>
@@ -342,19 +342,39 @@
                 </div>
               </section>
 
-              <section id="booking" style="padding: 2rem 0 3rem; background: #FFFFFF; margin: 2rem 0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
-                <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 2rem; letter-spacing: -0.01em; text-align: center;">Book a session</h2>
-                <div style="text-align: center; margin-bottom: 2rem;">
-                  <p style="font-size: 0.9rem; color: #ABABAB; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">DURATION</p>
-                  <p style="font-size: 1.25rem; color: #3D3D3D; font-weight: 400;">1 hour</p>
-                  <p style="font-size: 0.9rem; color: #ABABAB; margin-top: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">PRICE</p>
-                  <p style="font-size: 1.25rem; color: #3D3D3D; font-weight: 400;">voluntary donation</p>
-                </div>
-                <div style="text-align: center; padding: 0 1.5rem;">
-                  <button type="button" data-action="open-calendly" class="primary-button" style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.05rem; font-weight: 500; cursor: pointer; width: 100%; max-width: 320px; box-shadow: 0 2px 8px rgba(92, 123, 111, 0.2); font-family: inherit;">Choose a time</button>
-                  <p style="font-size: 0.85rem; color: #ABABAB; margin-top: 1rem; line-height: 1.5;">Or reach out via WhatsApp / Telegram if you prefer to arrange it directly.</p>
-                </div>
-              </section>
+               <section id="booking" style="padding: 2rem 0 3rem; background: #FFFFFF; margin: 2rem 0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+  <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 1.5rem; text-align: center;">Choose your session</h2>
+  
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 0 1rem;">
+    
+    <!-- Карточка 60 мин -->
+    <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+      <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">60</div>
+      <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">minutes</div>
+      <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">65 €</div>
+      <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">For muscle reset – perfect for busy days</p>
+    </div>
+
+    <!-- Карточка 90 мин -->
+    <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+      <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">90</div>
+      <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">minutes</div>
+      <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">85 €</div>
+      <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">Deeper work – more time to unwind</p>
+    </div>
+
+    <!-- Особый запрос -->
+     <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+      <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">custom</div>
+      <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">duration</div>
+      <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">custom price</div>
+      <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">When you need something different</p>
+    </div>
+  <button data-action="open-calendly" data-calendly-url="https://calendly.com/touchofcalm" style="background: #5C7B6F; color: #fff; border: none; padding: 0.6rem 1.5rem; border-radius: 30px; font-size: 0.95rem; cursor: pointer; width: 100%;">Book</button>
+    
+  </div>
+</section>
+
 
               <section id="questionnaire" style="padding: 2rem 0 3rem; background: #FFFFFF; margin: 2rem 0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
                 <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 1rem; letter-spacing: -0.01em; text-align: center;">This will help us understand each other better</h2>
