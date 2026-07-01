@@ -26,16 +26,36 @@
       font-size: 0.95rem;
       line-height: 1.6;
     }
-    .back-link {
-      display: inline-block;
-      margin-top: 2rem;
-      color: #5C7B6F;
+
+    /* Плавающая кнопка назад */
+    .floating-back {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #5C7B6F;
+      color: #FFFFFF;
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px;
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .back-link:hover {
-      border-color: #5C7B6F;
+    .floating-back:hover {
+      background: #4A6459;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+      .floating-back {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -188,8 +208,9 @@ Weitere Informationen zu Google Fonts finden Sie unter https://developers.google
 Google ist nach dem „EU‑US Data Privacy Framework“ (DPF) zertifiziert. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: https://www.dataprivacyframework.gov/participant/5780
 
 Quelle: https://www.e-recht24.de (angepasst und erweitert)
-
-    <a href="/" class="back-link">← Zurück zur Startseite</a>
   </div>
+
+  <!-- Плавающая кнопка "Back to homepage" -->
+  <a href="/" class="floating-back">← Home</a>
 </body>
 </html>
