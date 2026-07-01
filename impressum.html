@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Impressum – Touch of Calm</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <style>
@@ -35,42 +35,23 @@
       color: #5C7B6F;
       text-decoration: underline;
     }
-
-    /* Плавающая кнопка назад */
-    .floating-back {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: #5C7B6F;
-      color: #FFFFFF;
-      padding: 0.8rem 1.2rem;
-      border-radius: 40px;
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #5C7B6F;
       text-decoration: none;
-      font-size: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: background 0.3s ease, transform 0.2s ease;
-      z-index: 1000;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
     }
-    .floating-back:hover {
-      background: #4A6459;
-      transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-      .floating-back {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-      }
+    .back-link:hover {
+      border-color: #5C7B6F;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Impressum</h1>
+    <p style="font-size:0.85rem; color:#6B6B6B;">Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</p>
     <p>Fedor Stolov<br />
     Fedor Stolov - Wellness Massage<br />
     Ortlerstraße 1<br />
@@ -80,12 +61,16 @@
     <p>Telefon: +491742582751<br />
     E-Mail: fed.stolov@gmail.com</p>
 
-    <h2>Umsatzsteuer-ID</h2>
+    <h2>Steuernummer</h2>
+    <p>Steuernummer: 146/193/54916<br />
+    Zuständiges Finanzamt: Finanzamt München</p>
+
+    <h2>Umsatzsteuer</h2>
     <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
     Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</p>
 
     <h2>Wirtschafts­identifikations­nummer</h2>
-    <p>9847 4885 7369 001</p>
+    <p>Die Wirtschafts-Identifikationsnummer (W-IdNr.) wird gemäß § 139c AO vom Bundeszentralamt für Steuern vergeben und bei Vorliegen mitgeteilt.</p>
 
     <h2>Angaben zur Berufs­haftpflicht­versicherung</h2>
     <p><strong>Name und Sitz des Versicherers:</strong><br />
@@ -98,9 +83,8 @@
     <h2>Verbraucher­streit­beilegung/Universal­schlichtungs­stelle</h2>
     <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
     <p>Quelle: <a href="https://www.e-recht24.de" target="_blank">eRecht24</a></p>
-  </div>
 
-  <!-- Плавающая кнопка "Back to homepage" -->
-  <a href="/" class="floating-back">← Home</a>
+    <a href="/" class="back-link">← Zurück zur Startseite</a>
+  </div>
 </body>
 </html>
