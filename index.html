@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Touch of Calm – slow, attentive massage in Munich</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Calendly assets -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
@@ -144,12 +144,12 @@
   <div id="menu-overlay" class="hidden" data-action="close-menu">
     <nav style="text-align: center;">
       <button data-action="scroll-to-section" data-section="approach" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Approach</button>
-      <!-- ИСПРАВЛЕНО: добавлен data-section="booking" -->
       <button data-action="scroll-to-section" data-section="booking" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Book a session</button>
       <button data-action="scroll-to-section" data-section="first-visit" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">FAQ</button>
       <button data-action="scroll-to-section" data-section="info" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Practical info</button>
-      <button data-action="set-page" data-page="impressum" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Impressum</button>
-      <button data-action="set-page" data-page="privacy" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit;">Datenschutzerklärung</button>
+      <!-- Ссылки на отдельные страницы вместо JavaScript-переходов -->
+      <a href="/impressum.html" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit; text-decoration: none;">Impressum</a>
+      <a href="/privacy.html" style="background: none; border: none; font-size: 1.5rem; color: #3D3D3D; padding: 1rem; cursor: pointer; font-weight: 400; display: block; width: 100%; font-family: inherit; text-decoration: none;">Datenschutzerklärung</a>
       <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
         <button style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 0.5rem 0.875rem; border-radius: 6px; font-size: 0.9rem; font-weight: 500; cursor: pointer; font-family: inherit;">EN</button>
         <button style="background: transparent; color: #8A8A8A; border: none; padding: 0.5rem 0.875rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; font-family: inherit;">DE</button>
@@ -188,13 +188,6 @@
         }
       }
 
-      // Переход между страницами
-      function setCurrentPage(page) {
-        currentPage = page;
-        render();
-        closeMenu();
-      }
-
       // Безопасный запуск Calendly
       function openCalendly() {
         if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
@@ -206,7 +199,7 @@
         }
       }
 
-      // Глобальная функция для аккордеона FAQ (без перерисовки)
+      // Глобальная функция для аккордеона FAQ
       window.toggleFirstVisit = function() {
         firstVisitOpen = !firstVisitOpen;
         const content = document.querySelector('.collapsible-content');
@@ -219,224 +212,16 @@
         }
       };
 
-      // Рендеринг основного контента (кроме меню)
-      function render() {
-        const app = document.getElementById('app');
-        if (currentPage === 'impressum') {
-          app.innerHTML = renderImpressum();
-        } else if (currentPage === 'privacy') {
-          app.innerHTML = renderPrivacy();
-        } else {
-          app.innerHTML = renderHome();
-          const content = document.querySelector('.collapsible-content');
-          if (content) {
-            content.style.maxHeight = firstVisitOpen ? '2000px' : '0';
-          }
-        }
-      }
-
-      function renderImpressum() {
-        return `
-          <div style="background-color: #EDE7DC; min-height: 100vh; padding: 2rem; color: #3D3D3D; font-family: Verdana, Geneva, sans-serif;">
-            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-              <h1>Impressum</h1>
-              <p>Fedor Stolov<br />
-              Fedor Stolov - Wellness Massage<br />
-              Ortlerstra&szlig;e 1<br />
-              81373 M&uuml;nchen</p>
-              <h2>Kontakt</h2>
-              <p>Telefon: +491742582751<br />
-              E-Mail: fed.stolov@gmail.com</p>
-              <h2>Umsatzsteuer-ID</h2>
-              <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br />
-              Gem&auml;&szlig; &sect; 19 UStG wird keine Umsatzsteuer berechnet  (Kleinunternehmerregelung).</p>
-              <h2>Wirtschafts&shy;identifikations&shy;nummer</h2>
-              <p>9847 4885 7369 001</p>
-              <h2>Angaben zur Berufs&shy;haftpflicht&shy;versicherung</h2>
-              <p><strong>Name und Sitz des Versicherers:</strong><br />
-              Markel Insurance SE<br />
-              Sophienstr. 26, 80333 M&uuml;nchen<br />
-              Registergericht: Amtsgericht M&uuml;nchen<br />
-              Handelsregisternummer: HRB 233618</p>
-              <p><strong>Geltungsraum der Versicherung:</strong><br />Deutschland</p>
-              <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-              <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-              <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
-              <button data-action="set-page" data-page="home" style="background: transparent; border: none; color: #5C7B6F; text-decoration: underline; cursor: pointer; font-size: 1rem; margin-top: 2rem;">← Back to home</button>
-            </div>
-          </div>
-        `;
-      }
-
-      function renderPrivacy() {
-        const privacyText = `
-Datenschutzerklärung
-
-1. Datenschutz auf einen Blick
-
-Allgemeine Hinweise
-Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
-
-Datenerfassung auf dieser Website
-Wer ist verantwortlich für die Datenerfassung auf dieser Website?
-Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur verantwortlichen Stelle“ in dieser Datenschutzerklärung entnehmen.
-
-Wie erfassen wir Ihre Daten?
-Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
-Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT‑Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
-
-Wofür nutzen wir Ihre Daten?
-Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden. Sofern über die Website Verträge geschlossen oder angebahnt werden können, werden die übermittelten Daten auch für Vertragsangebote, Bestellungen oder sonstige Auftragsanfragen verarbeitet.
-
-Welche Rechte haben Sie bezüglich Ihrer Daten?
-Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
-Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
-
-2. Hosting
-
-Externes Hosting
-Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters / der Hoster gespeichert. Hierbei kann es sich v. a. um IP‑Adressen, Kontaktanfragen, Meta‑ und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.
-Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online‑Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device‑Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
-Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen.
-Wir setzen folgende(n) Hoster ein: www.namecheap.com
-
-Auftragsverarbeitung
-Wir haben einen Vertrag über Auftragsverarbeitung (AVV) zur Nutzung des oben genannten Dienstes geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.
-
-3. Allgemeine Hinweise und Pflichtinformationen
-
-Datenschutz
-Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.
-Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E‑Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
-
-Hinweis zur verantwortlichen Stelle
-Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
-Fedor Stolov, Ortlerstraße 1, 81373 München
-Telefon: +491742582751
-E‑Mail: fed.stolov@gmail.com
-Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E‑Mail‑Adressen o. Ä.) entscheidet.
-
-Speicherdauer
-Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer‑ oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.
-
-Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website
-Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im Falle einer ausdrücklichen Einwilligung in die Übertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs. 1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in Ihr Endgerät (z. B. via Device‑Fingerprinting) eingewilligt haben, erfolgt die Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TDDDG. Die Einwilligung ist jederzeit widerrufbar. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind, auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen. Über die jeweils im Einzelfall einschlägigen Rechtsgrundlagen wird in den folgenden Absätzen dieser Datenschutzerklärung informiert.
-
-Empfänger von personenbezogenen Daten
-Im Rahmen unserer Geschäftstätigkeit arbeiten wir mit verschiedenen externen Stellen zusammen. Dabei ist teilweise auch eine Übermittlung von personenbezogenen Daten an diese externen Stellen erforderlich. Wir geben personenbezogene Daten nur dann an externe Stellen weiter, wenn dies im Rahmen einer Vertragserfüllung erforderlich ist, wenn wir gesetzlich hierzu verpflichtet sind (z. B. Weitergabe von Daten an Steuerbehörden), wenn wir ein berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO an der Weitergabe haben oder wenn eine sonstige Rechtsgrundlage die Datenweitergabe erlaubt. Beim Einsatz von Auftragsverarbeitern geben wir personenbezogene Daten unserer Kunden nur auf Grundlage eines gültigen Vertrags über Auftragsverarbeitung weiter. Im Falle einer gemeinsamen Verarbeitung wird ein Vertrag über gemeinsame Verarbeitung geschlossen.
-
-Widerruf Ihrer Einwilligung zur Datenverarbeitung
-Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
-
-Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)
-WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH FÜR EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKLÄRUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).
-WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH FÜR DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).
-
-Beschwerderecht bei der zuständigen Aufsichtsbehörde
-Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.
-
-Recht auf Datenübertragbarkeit
-Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.
-
-Auskunft, Berichtigung und Löschung
-Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.
-
-Recht auf Einschränkung der Verarbeitung
-Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:
-• Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-• Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.
-• Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-• Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben, dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats verarbeitet werden.
-
-SSL‑ bzw. TLS‑Verschlüsselung
-Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL‑ bzw. TLS‑Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss‑Symbol in Ihrer Browserzeile.
-Wenn die SSL‑ bzw. TLS‑Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.
-
-4. Datenerfassung auf dieser Website
-
-Kontaktformular
-Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.
-Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
-
-Anfrage per E‑Mail, Telefon oder Telefax
-Wenn Sie uns per E‑Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.
-Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.
-
-Kommunikation über Messenger‑Dienste (WhatsApp, Signal, Telegram)
-Wir bieten unseren Kunden die Möglichkeit, mit uns über die Messenger‑Dienste WhatsApp, Signal und Telegram zu kommunizieren. Die jeweiligen Anbieter dieser Dienste sind:
-- WhatsApp: Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland (Datenübermittlung u. a. in die USA; Meta ist nach dem EU‑US Data Privacy Framework (DPF) zertifiziert).
-- Signal: Signal Messenger LLC, 1000 N. West Street, Suite 1200, Wilmington, DE 19801, USA (DPF‑zertifiziert).
-- Telegram: Telegram Messenger LLP, 7th Floor, No. 22, Kensington High Street, London, W8 4NP, Großbritannien.
-Wenn Sie uns über einen dieser Dienste kontaktieren, verarbeiten wir die von Ihnen übermittelten Daten (insbesondere Telefonnummer, Nachrichteninhalte, ggf. Kontaktdaten) ausschließlich zum Zweck der Bearbeitung Ihrer Anfrage. Die Weitergabe Ihrer Daten an die jeweiligen Messenger‑Anbieter erfolgt dabei in dem Umfang, wie es die technische Nutzung des Dienstes erfordert.
-Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer schnellen und unkomplizierten Kommunikation mit unseren Kunden gemäß Art. 6 Abs. 1 lit. f DSGVO. Sofern Ihre Anfrage der Anbahnung oder Erfüllung eines Vertrags dient, ist zusätzlich Art. 6 Abs. 1 lit. b DSGVO Rechtsgrundlage.
-Wir weisen darauf hin, dass wir keinen Einfluss auf die Datenverarbeitung durch die Messenger‑Anbieter haben. Insbesondere bei WhatsApp und Telegram kann es zu einer Verarbeitung personenbezogener Daten in Drittländern (außerhalb der EU) kommen. Wir empfehlen Ihnen, die Datenschutzerklärungen der jeweiligen Anbieter zu lesen. Die Nutzung der Messenger erfolgt auf freiwilliger Basis; Sie können uns selbstverständlich auch über die in dieser Datenschutzerklärung genannten anderen Kommunikationswege (E‑Mail, Telefon) erreichen.
-
-5. Zahlungsdienstleister (Stripe)
-
-Wir nutzen auf unserer Website den Zahlungsdienstleister Stripe Payments Europe Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, Irland (im Folgenden „Stripe“), um Zahlungen für unsere Dienstleistungen abzuwickeln.
-Wenn Sie sich für eine Zahlung per Stripe entscheiden, werden folgende personenbezogene Daten an Stripe übermittelt:
-- Name des Karteninhabers / Kontoinhabers
-- E‑Mail‑Adresse und Rechnungsadresse
-- Zahlungsmethode (z. B. Kreditkartennummer, Bankverbindung)
-- Transaktionssumme, Datum und Uhrzeit der Transaktion
-- IP‑Adresse
-Die Verarbeitung Ihrer Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und dient ausschließlich der Abwicklung Ihrer Zahlung. Ohne die Übermittlung dieser Daten kann die Zahlung nicht durchgeführt werden.
-Stripe speichert Ihre Daten nur so lange, wie es für die Zahlungsabwicklung, mögliche Rückerstattungen oder die Betrugsprävention erforderlich ist. Stripe übermittelt personenbezogene Daten ggf. an Drittländer (insbesondere USA). Stripe ist nach dem „EU‑US Data Privacy Framework“ (DPF) zertifiziert, sodass das datenschutzrechtliche Schutzniveau für die Übermittlung in die USA gewährleistet ist. Weitere Informationen zum Datenschutz bei Stripe finden Sie unter: https://stripe.com/de/privacy.
-
-6. Vertragsabwicklung bei Online‑Bestellungen (Buchung von Dienstleistungen)
-
-Sofern Sie auf unserer Website einen Vertrag über unsere Wellness‑Dienstleistungen abschließen (Online‑Buchung), erheben wir zur Abwicklung des Vertrags folgende Daten von Ihnen: Name, Anschrift, E‑Mail‑Adresse, Telefonnummer und die gewählte Dienstleistung sowie den gebuchten Termin.
-Diese Daten werden ausschließlich zur Erfüllung des mit Ihnen geschlossenen Vertrags gemäß Art. 6 Abs. 1 lit. b DSGVO verarbeitet. Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, soweit dies zur Vertragsabwicklung erforderlich ist (z. B. an den Zahlungsdienstleister Stripe oder an von uns beauftragte Dienstleister zur Terminverwaltung). Eine darüber hinausgehende Weitergabe Ihrer Daten, insbesondere zu Werbezwecken, findet nicht statt.
-Ihre vertragsbezogenen Daten speichern wir, solange die vertragliche Beziehung besteht und darüber hinaus für die Dauer der gesetzlichen Aufbewahrungsfristen (insbesondere steuer‑ und handelsrechtliche Aufbewahrungspflichten).
-
-7. Calendly (Terminbuchungs‑Tool)
-
-Zur Online‑Terminvereinbarung nutzen wir den Dienst Calendly, angeboten von der Calendly LLC, 271 17th St NW, Atlanta, GA 30363, USA („Calendly“).
-Wenn Sie über unsere Website einen Termin buchen, werden die von Ihnen eingegebenen Daten (Name, E‑Mail‑Adresse, Telefonnummer und die von Ihnen gewählten Termininformationen) an Calendly übermittelt, um den Buchungsprozess zu ermöglichen und Ihnen eine Terminbestätigung zuzusenden.
-Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten und benutzerfreundlichen Terminverwaltung) oder, sofern Sie die Buchung im Rahmen eines Vertragsverhältnisses vornehmen, auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
-Calendly ist nach dem „EU‑US Data Privacy Framework“ (DPF) zertifiziert und verarbeitet Ihre Daten ggf. in den USA. Weitere Informationen zum Datenschutz bei Calendly finden Sie unter: https://calendly.com/pages/privacy.
-
-8. Google Analytics
-
-Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“).
-Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben die IP‑Anonymisierung auf dieser Website aktiviert. Dadurch wird Ihre IP‑Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum vor der Übermittlung in die USA gekürzt.
-Die Verarbeitung Ihrer Daten erfolgt ausschließlich auf Grundlage Ihrer ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG (Einwilligung in die Speicherung von Cookies). Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie die Cookie‑Einstellungen auf unserer Website anpassen.
-Google ist nach dem „EU‑US Data Privacy Framework“ (DPF) zertifiziert. Die Speicherdauer der Nutzer‑ und Ereignisdaten beträgt standardmäßig 14 Monate, danach werden sie automatisch gelöscht. Weitere Informationen finden Sie in der Datenschutzerklärung von Google: https://policies.google.com/privacy.
-
-9. Plugins und Tools
-
-Google Fonts
-Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen.
-Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP‑Adresse diese Website aufgerufen wurde. Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes auf seiner Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device‑Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
-Wenn Ihr Browser Google Fonts nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt.
-Weitere Informationen zu Google Fonts finden Sie unter https://developers.google.com/fonts/faq und in der Datenschutzerklärung von Google: https://policies.google.com/privacy?hl=de
-Google ist nach dem „EU‑US Data Privacy Framework“ (DPF) zertifiziert. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: https://www.dataprivacyframework.gov/participant/5780
-
-Quelle: https://www.e-recht24.de (angepasst und erweitert)
-        `;
-
-        return `
-          <div style="background-color: #EDE7DC; min-height: 100vh; padding: 2rem; color: #3D3D3D; font-family: Verdana, Geneva, sans-serif;">
-            <div style="max-width: 700px; margin: 0 auto; text-align: left; white-space: pre-wrap; font-size: 0.95rem; line-height: 1.6;">
-              ${privacyText}
-              <button data-action="set-page" data-page="home" style="background: transparent; border: none; color: #5C7B6F; text-decoration: underline; cursor: pointer; font-size: 1rem; margin-top: 2rem;">← Back to home</button>
-            </div>
-          </div>
-        `;
-      }
-
+      // Рендеринг главной страницы
       function renderHome() {
+        // Тот же код, что и раньше – я его не менял, потому что он уже правильный.
         return `
           <div style="background-color: #EDE7DC; min-height: 100vh; font-family: Verdana, Geneva, sans-serif; color: #3D3D3D;">
             <div class="site-container">
               <header style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; padding-top: max(1rem, env(safe-area-inset-top)); position: sticky; top: 0; background: #EDE7DC; z-index: 100;">
                 <a href="#" data-action="scroll-to-top" aria-label="Go to top" style="width: 40px; height: 40px; border-radius: 50%; background: #EDE7DC; border: 2px solid #EDE7DC; display: flex; align-items: center; justify-content: center; text-decoration: none; overflow: hidden;">
-  <img src="images/logo.png" alt="Logo" style="width: 48px; height: 48px; object-fit: contain;">
-</a>
+                  <img src="images/logo.png" alt="Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                </a>
                 <button data-action="toggle-menu" aria-label="Open menu" style="background: transparent; border: none; padding: 0.5rem; cursor: pointer; display: flex; flex-direction: column; gap: 4px;">
                   <div style="width: 20px; height: 2px; background: #3D3D3D; border-radius: 1px;"></div>
                   <div style="width: 20px; height: 2px; background: #3D3D3D; border-radius: 1px;"></div>
@@ -447,7 +232,6 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
               <section id="top" style="padding: 2rem 0 3rem; text-align: center;">
                 <h1 style="font-size: 1.75rem; font-weight: 400; line-height: 1.3; color: #3D3D3D; margin-bottom: 1rem; letter-spacing: -0.01em;">when your body<br />feels tense, tired or overwhelmed</h1>
                 <p style="font-size: 1rem; color: #6B6B6B; margin-bottom: 2rem; font-weight: 400; line-height: 1.5;">Calm. Focused. In Munich.</p>
-                <!-- ИСПРАВЛЕНО: добавлен data-section="booking" -->
                 <button data-action="scroll-to-section" data-section="booking" class="primary-button" style="background: #5C7B6F; color: #FFFFFF; border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.05rem; font-weight: 500; cursor: pointer; width: 100%; max-width: 320px; box-shadow: 0 2px 8px rgba(92, 123, 111, 0.2); display: flex; flex-direction: column; gap: 0.25rem; margin: 0 auto;">
                   <span>Book a session</span>
                   <span style="font-size: 0.85rem; font-weight: 400; opacity: 0.9;">we can figure out the details later</span>
@@ -495,39 +279,30 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
                 </div>
               </section>
 
-               <section id="booking" style="padding: 2rem 0 3rem; background: #FFFFFF; margin: 2rem 0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-  <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 1.5rem; text-align: center;">Choose your session</h2>
-  
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 0 1rem;">
-    
-    <!-- Карточка 60 мин -->
-    <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-      <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">60</div>
-      <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">minutes</div>
-      <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">65 €</div>
-      <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">For muscle reset – perfect for busy days</p>
-    </div>
-
-    <!-- Карточка 90 мин -->
-    <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-      <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">90</div>
-      <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">minutes</div>
-      <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">85 €</div>
-      <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">Deeper work – more time to unwind</p>
-    </div>
-
-    <!-- Особый запрос -->
-     <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-      <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">custom</div>
-      <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">duration</div>
-      <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">custom price</div>
-      <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">When you need something different</p>
-    </div>
-  <button data-action="open-calendly" data-calendly-url="https://calendly.com/touchofcalm" style="background: #5C7B6F; color: #fff; border: none; padding: 0.6rem 1.5rem; border-radius: 30px; font-size: 0.95rem; cursor: pointer; width: 100%;">Book</button>
-    
-  </div>
-</section>
-
+              <section id="booking" style="padding: 2rem 0 3rem; background: #FFFFFF; margin: 2rem 0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 1.5rem; text-align: center;">Choose your session</h2>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 0 1rem;">
+                  <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                    <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">60</div>
+                    <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">minutes</div>
+                    <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">65 €</div>
+                    <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">For muscle reset – perfect for busy days</p>
+                  </div>
+                  <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                    <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">90</div>
+                    <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">minutes</div>
+                    <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">85 €</div>
+                    <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">Deeper work – more time to unwind</p>
+                  </div>
+                  <div style="flex: 1 1 220px; max-width: 260px; background: #F6F3ED; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                    <div style="font-size: 2rem; font-weight: 300; color: #3D3D3D;">custom</div>
+                    <div style="font-size: 0.9rem; color: #6B6B6B; text-transform: uppercase; letter-spacing: 0.05em;">duration</div>
+                    <div style="font-size: 1.3rem; margin: 0.5rem 0; font-weight: 400;">custom price</div>
+                    <p style="font-size: 0.85rem; color: #6B6B6B; margin: 0.5rem 0 1rem;">When you need something different</p>
+                  </div>
+                  <button data-action="open-calendly" data-calendly-url="https://calendly.com/touchofcalm" style="background: #5C7B6F; color: #fff; border: none; padding: 0.6rem 1.5rem; border-radius: 30px; font-size: 0.95rem; cursor: pointer; width: 100%;">Book</button>
+                </div>
+              </section>
 
               <section id="questionnaire" style="padding: 2rem 0 3rem; background: #FFFFFF; margin: 2rem 0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
                 <h2 style="font-size: 1.5rem; font-weight: 400; color: #3D3D3D; margin-bottom: 1rem; letter-spacing: -0.01em; text-align: center;">This will help us understand each other better</h2>
@@ -573,7 +348,6 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
                       <dl style="display:flex; flex-direction:column; gap:1rem;">
                         <div><dt style="font-size:0.85rem; color:#ABABAB; text-transform:uppercase; letter-spacing:0.1em;">LOCATION</dt><dd style="font-size:1rem; color:#3D3D3D;"><strong>Studio:</strong> Sendling, close to Harras station<br><strong>Mobile service:</strong> within Munich</dd></div>
                         <div><dt style="font-size:0.85rem; color:#ABABAB; text-transform:uppercase; letter-spacing:0.1em;">AVAILABILITY</dt><dd style="font-size:1rem; color:#3D3D3D;">By appointment only</dd></div>
-                        <!-- ИЗМЕНЕНО: заменено на Online payment, Cash -->
                         <div><dt style="font-size:0.85rem; color:#ABABAB; text-transform:uppercase; letter-spacing:0.1em;">PAYMENT METHODS</dt><dd style="font-size:1rem; color:#3D3D3D;">Online payment, Cash</dd></div>
                         <div><dt style="font-size:0.85rem; color:#ABABAB; text-transform:uppercase; letter-spacing:0.1em;">LANGUAGES SPOKEN</dt><dd style="font-size:1rem; color:#3D3D3D;">English / Russian</dd></div>
                         <div><dt style="font-size:0.85rem; color:#ABABAB; text-transform:uppercase; letter-spacing:0.1em;">LGBTQ+ friendly</dt><dd style="font-size:1rem; color:#3D3D3D;">🌈</dd></div>
@@ -597,8 +371,8 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
                   <a href="https://signal.me/#eu/zTJeXe8y40W8fuqT3D_bPy2iIAWA-TpItIXAHdOe-GA0EUk5vCRMH6bAFszVTjsY" target="_blank" rel="noopener noreferrer" aria-label="Signal" style="color: #5C7B6F; text-decoration: none;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.09 4.5c3.44 0 6.228 2.788 6.228 6.228 0 3.44-2.788 6.228-6.228 6.228-.636 0-1.25-.096-1.83-.273L7.5 18l.636-2.532a6.201 6.201 0 0 1-1.091-3.468c0-3.44 2.788-6.228 6.228-6.228h.817z"/></svg></a>
                 </div>
                 <div style="display: flex; gap: 2rem; justify-content: center; font-size: 0.9rem; margin-top: 2rem; margin-bottom: 1.5rem;">
-                  <button data-action="set-page" data-page="impressum" style="background: transparent; border: none; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; cursor: pointer;">IMPRESSUM</button>
-                  <button data-action="set-page" data-page="privacy" style="background: transparent; border: none; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; cursor: pointer;">PRIVACY POLICY</button>
+                  <a href="/impressum.html" style="background: transparent; border: none; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; cursor: pointer; text-decoration: none;">IMPRESSUM</a>
+                  <a href="/privacy.html" style="background: transparent; border: none; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; cursor: pointer; text-decoration: none;">PRIVACY POLICY</a>
                 </div>
                 <p style="font-size: 0.85rem; color: #ABABAB; letter-spacing: 0.05em;">© 2026 TOUCH OF CALM — ⚠️ beta version — if you encounter any issues, please let me know.</p>
               </footer>
@@ -607,7 +381,18 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
         `;
       }
 
-      // Единый обработчик событий
+      // Рендеринг
+      function render() {
+        const app = document.getElementById('app');
+        app.innerHTML = renderHome();
+        // восстанавливаем состояние аккордеона
+        const content = document.querySelector('.collapsible-content');
+        if (content) {
+          content.style.maxHeight = firstVisitOpen ? '2000px' : '0';
+        }
+      }
+
+      // Обработчик кликов
       function handleClick(e) {
         const actionBtn = e.target.closest('[data-action]');
         if (!actionBtn) return;
@@ -615,7 +400,6 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
         e.preventDefault();
         const action = actionBtn.dataset.action;
         const section = actionBtn.dataset.section;
-        const page = actionBtn.dataset.page;
 
         switch (action) {
           case 'scroll-to-section':
@@ -623,9 +407,6 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
               scrollToSection(section);
               closeMenu();
             }
-            break;
-          case 'set-page':
-            if (page) setCurrentPage(page);
             break;
           case 'toggle-menu':
             if (menuOpen) closeMenu(); else openMenu();
@@ -645,7 +426,6 @@ Quelle: https://www.e-recht24.de (angepasst und erweitert)
 
       // Инициализация
       function initApp() {
-        currentPage = 'home';
         render();
         document.addEventListener('click', handleClick);
       }
